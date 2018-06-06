@@ -1,4 +1,4 @@
-import "wes_upstream_1SampleFastqs_gatk4_2.wdl" as sample_wf
+import "wes_upstream_1SampleFastqs_gatk4.wdl" as sample_wf
 
 workflow wes_upstream 
 {
