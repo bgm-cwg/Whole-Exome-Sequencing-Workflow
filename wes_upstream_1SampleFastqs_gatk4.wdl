@@ -727,7 +727,7 @@ task SortAndFixTags
   {
     set -o pipefail
     
-    ${tools}/samtools-1.8/samtools sort -l 2 -n -@16 -O BAM -o ${input_bam}.sorted.bam
+    ${tools}/samtools-1.8/samtools sort -l 2 -@16 -O BAM -o ${input_bam}.sorted.bam
 
     java -Xmx${fix_tags_java_heap_memory} -XX:ParallelGCThreads=2 -jar ${tools}/picard.jar \
     SetNmAndUqTags \
