@@ -60,7 +60,7 @@ workflow wes
 	   picard              = tools + "/picard.jar"
       }
 	  
-      call SamToFastqAndBwaMem 
+      call BwaMem 
       {
          input:
 	   fastq1               = fastq1,
@@ -107,15 +107,6 @@ workflow wes
 	   samtools  = tools + "/samtools-1.8/samtools",
 	   pyScript  = tools + "/test.py"
       }
-	
-      #call SortSam_byQuery as sortMergedBam
-      #{
-      #   input:
-      #	   input_bam           = Fix_RG_Header.output_bam,
-      #	   output_bam_basename = base_name + "." + sampleName + ".sorted.merged.aligned",
-      #	   compressionLvl      = 2,
-      #	   picard              = tools + "/picard.jar"
-      #}
   
       call MarkDuplicates 
       {
@@ -378,7 +369,7 @@ task GetBwaVersion
 }
 
 
-task SamToFastqAndBwaMem
+task BwaMem
 {
   File fastq1
   File fastq2
